@@ -1,5 +1,6 @@
 csv = 'Title,Company ID,Location,Phone,Fax,Email,Website,Products,Contact Fullname,Contact Role\n';
-pages = 92
+
+pages = parseInt(document.querySelector('[class="pager-last last active"]').innerHTML.match(/(\d+)/)[0]) + 1
 
 for (let i = 0; i < pages; i++){
     fetch(`https://members.plma.com/trade-show-directory?page=${i}`)
