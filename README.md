@@ -1,6 +1,6 @@
 # Web Scraping Workspace
 
-Repository for one-off web scraping/parsing projects. Note that some of these websites are **private**, therefore you will not be able to run the scraping/parsing. As such, any private data will be ommitted from this repository.
+Repository for the code belonging to one-off web scraping/parsing projects. Note that some of these websites are **private**, therefore you may not be able to run the scraping/parsing for them. As such, any private data will be ommitted from this repository.
 
 ## `PLMA`
 HTML Parser made in JavaScript specifically for [Private Label Manufacturers Association Trade Show](https://members.plma.com/trade-show-directory)
