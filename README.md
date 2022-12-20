@@ -10,9 +10,9 @@ This code has to be run on the console of the website itself after logging in. T
 ## `WFF23`
 Scraper and Parser for exhibitors of the [2023 Winter Fancy Food Show](https://wff2023.mapyourshow.com/)
 
-To start the process, you will need the 3 python files (`getVendors.py`, `scrape.py`, `parse.py`) and an empty folder titled `pages` (can be changed later on). 
+To start the process, you will need the 3 python files (`getVendors.py`, `scrape.py`, `parse.py`) and an empty folder titled `pages` (can be changed later on). The simplest way to get this is to clone this repository locally then cd to the WFF23 folder in your terminal to run the files.
 
-Go to the [exhibitor list page](https://wff2023.mapyourshow.com/8_0/explore/exhibitor-gallery.cfm?featured=false) and expand the list of all exhibitors and scroll all the way through it to load the content. Afterwords, open the dev console and search for the `<tbody>` that contains the links to all the exhibitors and copy that HTML element. Create an html file in the same folder as the `.py` files and paste the HTML (ex: `vendors.html`). You will then run the following files in order:
+Go to the [exhibitor list page](https://wff2023.mapyourshow.com/8_0/explore/exhibitor-gallery.cfm?featured=false) and expand the list of all exhibitors and scroll all the way through it to load the content. Afterwords, open the dev console and search for the `<ul>` with class=`"cards exh-basic"` that contains the links to all the exhibitors and copy that HTML element. Create an html file in the same folder as the `.py` files and paste the HTML (ex: `vendors.html`). You will then run the following files in order:
 
 ### `getVendors.py`
 This code will take the HTML pasted from the site and extract all the vendor ids into a `vendors.txt` file. 
