@@ -20,7 +20,7 @@ if __name__ == "__main__":
         with open(sys.argv[1], 'r') as f:
             data = f.read()
 
-        soup = BeautifulSoup(data, 'lxml')
+        soup = BeautifulSoup(data, 'html')
         # THIS IS FOR LIST VIEW
         eles = soup.find_all('a', attrs={'class': 'bb-0 color-inherit'})
 

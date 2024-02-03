@@ -16,7 +16,7 @@ It reads pages from the pages/ dir, and outputs to data.json
 
 class Parser:
     def __init__(self, data: str, page_id: str):
-        self.soup = BeautifulSoup(data, 'lxml')
+        self.soup = BeautifulSoup(data, 'html')
         self.base_url = sys.argv[1].rstrip('/')
         self.url = self.base_url + '/8_0/exhibitor/exhibitor-details.cfm?exhid=' +\
             page_id.replace('.html', '')
