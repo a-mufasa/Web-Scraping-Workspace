@@ -1,113 +1,97 @@
-import os
-import re
-import sys
 import json
-import urllib
+import os
+import sys
+import re
 from bs4 import BeautifulSoup
 
+HELP_TEXT = '''Parser! Parse smallworldlabs.com pages
+USAGE: python3 parse.py [base_url]
+
+ARGUMENTS
+- base_url: The host of the site. EX: https://expowest24.smallworldlabs.com
+
+It reads pages from the pages/ dir, and outputs to data.json
+'''
+
 class Parser:
-    def __init__(self, filename: str, base_url: str):
-        self.filename = filename
-        self.base_url = base_url.rstrip('/')
-        self.help_text = f'''Expo West Parser! Parse Expo West links
-        USAGE: python3 {filename}
+    def __init__(self, data: str, page_id: str):
+        self.soup = BeautifulSoup(data, 'html.parser')
+        self.base_url = sys.argv[1].rstrip('/')
+        self.url = self.base_url + '/?page_id=2424&boothId=' + page_id.replace('.html', '')
 
-        ARGUMENTS
-        - base_url: The base_url of the site, up to whatever the page_id is EX: "https://example.com/page/"
-        - input_dir (optional): Defaults to pages/, but if provided, will use that folder
+    def parse_address(self, address_marker):
+        if address_marker:
+            # Use .decode_contents() to retain HTML entities like new lines
+            address_html = address_marker.decode_contents()
+            # Replace <br/> tags with a space to ensure proper spacing in the address
+            address_html = address_html.replace('<br/>', ' ').replace('<br>', ' ')
+            # Now parse this modified HTML to extract clean text
+            clean_address = BeautifulSoup(address_html, 'html.parser').get_text(' ', strip=True)
+            return clean_address
+        return ""
 
-        It reads pages from the pages/ dir (default), and outputs to data.json
-        '''
+    def parse(self) -> dict:
+        comp = {'originalUrl': self.url}
 
-    def remove_mega_spaces(self, text: str, newlines=True) -> str:
-        if newlines:
-            text = re.split(r' |\n|\t|\u00a0|\u202f|\ufffd|\u200b', text)
-        else:
-            text = re.split(r' |\t|\u00a0|\u202f|\ufffd|\u200b', text)
-        text = list(filter(None, text))
-        return ' '.join(text).strip()
+        # Extract Booth Number
+        booth_marker = self.soup.find('a', href=lambda href: href and 'eventmap.aspx' in href)
+        if booth_marker:
+            comp['booth'] = booth_marker.get_text(strip=True)
 
-    def parse_socials(self, soup) -> dict:
-        socials = {}
-        social_template = r'http(s|):\/\/(www\.|.*\.){}\/.*'
-        social_medias = {
-            'facebook': re.compile(social_template.format('facebook.com')),
-            'twitter': re.compile(social_template.format('twitter.com')),
-            'instagram': re.compile(social_template.format('instagram.com')),
-            'linkedin': re.compile(social_template.format('linkedin.com')),
-            'youtube': re.compile(social_template.format('youtube.com')),
-        }
+        # Extracting Sections from About Tab
+        about_marker = self.soup.find('div', id=lambda id: id and id.endswith('_about'))
+        if about_marker:
+            for item in about_marker.find_all('div', class_='row'):
+                key = item.find('div', class_='text-secondary').get_text(strip=True).replace(' ', '_')
+                value = item.find('div', class_='profileResponse').get_text(strip=True)
+                comp[key] = value
 
-        for soc, reg in social_medias.items():
-            if soc_url := soup.find('a', attrs={'href': reg}):
-                socials[soc] = soc_url.attrs['href'].strip()
-            elif soc_url := soup.find('a', attrs={'data-href': reg}):
-                socials[soc] = soc_url.attrs['data-href'].strip()
+        # Extracting Contact Info
+        contact_marker = self.soup.find('div', id=lambda id: id and id.endswith('_contact'))
+        if contact_marker:
+            for item in contact_marker.find_all('div', class_='row'):
+                key = item.find('div', class_='text-secondary').get_text(strip=True)
+                value = item.find('div', class_='profileResponse')
+                if key == "Address":
+                    value = self.parse_address(value)
+                else:
+                    value = value.get_text(strip=True)
+                comp[key] = value
 
-        return socials
+        # Extracting Additional Info
+        additional_info_marker = self.soup.find('div', id=lambda id: id and id.endswith('_custom'))
+        if additional_info_marker:
+            for item in additional_info_marker.find_all('div', class_='row'):
+                key = item.find('div', class_='text-secondary').get_text(strip=True).replace(' ', '_')
+                value = item.find('div', class_='profileResponse').get_text(strip=True)
+                comp[key] = value
 
-    def parse(self, data: str, page_id: str) -> dict:
-        comp = {
-            'originalUrl': self.join_url(self.base_url, page_id.replace('_SLASH_', '/').replace('.html', ''))
-        }
-
-        soup = BeautifulSoup(data, 'html')
-        footer = soup.find('div', id='footer-container')
-        if footer:
-            footer.extract()
-
-        if name := soup.find('h2', class_='content-title'):
-            comp['name'] = name.text.strip()
-
-        if website := soup.find('a', class_='pes-external-link-gate'):
-            comp['website'] = website.attrs['data-href']
-
-        if address := soup.find('li', class_='BoothContactCountry'):
-            comp['address'] = self.remove_mega_spaces(address.parent.text)
-
-        comp.update(self.parse_socials(soup))
-
-        if description := soup.find('p', class_='BoothPrintProfile'):
-            comp['description'] = self.remove_mega_spaces(description.text)
-
-        if categories := soup.find_all('div', class_='ProductCategoryContainer'):
-            comp['categories'] = [{'name': cat.find('strong').text,
-                                   'subcategories': [li.text.strip() for li in cat.find_all('li', class_='ProductCategoryLi')]}
-                                  for cat in categories]
-
-        if brands := soup.find('p', class_='BoothBrands'):
-            b_tag = brands.find('b')
-            if b_tag:
-                b_tag.extract()
-            comp['brands'] = self.remove_mega_spaces(brands.text)
+        # Extracting Organization Member List
+        member_list_marker = self.soup.find('div', class_='generic-list-wrapper')
+        if member_list_marker:
+            members = [member.get_text(strip=True) for member in member_list_marker.find_all('h6')]
+            comp['org_members'] = members
 
         return comp
 
-    @staticmethod
-    def join_url(url1: str, url2: str) -> str:
-        return urllib.parse.urljoin(url1, url2)
-
-    def get(self):
-        if len(sys.argv) < 2 or sys.argv[1] == '-h':
-            print(self.help_text)
-        else:
-            pages_dir = 'pages/' if len(sys.argv) < 3 else sys.argv[2]
-            pages = os.listdir(pages_dir)
-            try:
-                pages.remove('.DS_Store')
-            except ValueError:
-                pass
-            companies = []
-
-            for page in pages:
-                with open(os.path.join(pages_dir, page), 'r') as f:
-                    page_data = f.read()
-                companies.append(self.parse(page_data, page))
-
-            with open('data.json', 'w') as f:
-                json.dump(companies, f, indent=4)
-
 if __name__ == "__main__":
-    base_url = "https://example.com"  # Adjust as necessary
-    parser = Parser('parsew.py', base_url)
-    parser.get()
+    if len(sys.argv) != 2 or sys.argv[1] == '-h':
+        print(HELP_TEXT)
+    else:
+        pages = os.listdir('pages/')
+        companies = []
+
+        for counter, page in enumerate(pages):
+            try:
+                with open(f'pages/{page}', 'r') as f:
+                    page_data = f.read()
+                parsed_data = Parser(page_data, page).parse()
+                companies.append(parsed_data)
+            except Exception as e:
+                print(f'Error rose from {page}: {str(e)}')
+
+            if counter % 50 == 0:
+                print(f'Completed {counter} of {len(pages)}')
+
+        with open('data.json', 'w') as f:
+            json.dump(companies, f, ensure_ascii=False, indent=4)
