@@ -1,0 +1,4 @@
+## `PLMA`
+HTML Parser made in JavaScript specifically for [Private Label Manufacturers Association Trade Show](https://members.plma.com/trade-show-directory)
+
+This code has to be run on the console of the website itself after logging in. The first part of the code will loop through all the pages of the list of companies. It will extract the fields/data and append it to a CSV containing all the companies and their information. Once this code is done running (5-10 seconds with 92 pages), the second part of the code can be run in the console to add a CSV download link to the `<head>` of the page. The CSV will contain the following information for each company: `Title, Company ID, Location, Phone, Fax, Email, Website, Products, Contact Fullname, Contact Role`. 
