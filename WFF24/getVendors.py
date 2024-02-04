@@ -3,12 +3,12 @@ from bs4 import BeautifulSoup
 import sys
 
 HELP_TEXT='''VENDORS GETTER!
-Inputs an html file with just the tbody of the list of vendors in list view!
+Inputs an html file with just the <tbody> of the list of vendors in list view!
 
 USAGE: python3 getVendors.py [html file]
 
 ARGUMENTS
-- html_file: The html file where the tbody is stored
+- html_file: The html file where the <tbody> is stored
 
 Outputs a txt file with the same name as input but with .txt extension
 '''

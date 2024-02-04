@@ -2,12 +2,12 @@ from bs4 import BeautifulSoup
 import sys
 
 HELP_TEXT = '''Expo West Vendors Getter
-Input an html file with just the tbody of the list of vendors.
+Input an html file with just the <tbody> of the list of vendors.
 
-USAGE: python3 getEwVendors.py [html file]
+USAGE: python3 getVendors.py [html file]
 
 ARGUMENTS
-- html_file: The html file where the tbody is stored
+- html_file: The html file where the <tbody> is stored
 
 Outputs a txt file with the same name as input but with .txt extension
 '''
