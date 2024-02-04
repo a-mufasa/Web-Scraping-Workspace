@@ -1,6 +1,4 @@
 ## `EW24`
-*Note: The scraping pattern is very similar to the WFF scraper*
-
 Scraper and Parser for exhibitors of the [2024 Expo West](https://www.expowest.com)
 
 To start the process, you will need the 3 python files (`getVendors.py`, `scrape.py`, `parse.py`) and an empty folder titled `pages` (can be changed later on). The simplest way to get this is to clone this repository locally then cd to the EW24 folder in your terminal to run the files.
