@@ -9,7 +9,7 @@ HELP_TEXT='''Parser! Parse mapyourshow.com pages
 USAGE: python3 parse.py [base_url]
 
 ARGUMENTS
-- base_url: The host of the site. EX: https://tfdal2019.mapyourshow.com
+- base_url: The host of the site. EX: https://wff2024.mapyourshow.com
 
 It reads pages from the pages/ dir, and outputs to data.json
 '''
