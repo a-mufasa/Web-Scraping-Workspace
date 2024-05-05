@@ -1,5 +1,5 @@
-## `WFF24`
-Scraper and Parser for exhibitors of the [2024 Winter Fancy Food Show](https://wff2024.mapyourshow.com/)
+## `mapyourshow`
+Scraper and Parser for exhibitors of mapyourshow sites. Example: [2024 Winter Fancy Food Show](https://wff2024.mapyourshow.com/)
 
 To start the process, you will need the 3 python files (`getVendors.py`, `scrape.py`, `parse.py`) and an empty folder titled `pages` (can be changed later on). The simplest way to get this is to clone this repository locally then cd to the WFF24 folder in your terminal to run the files.
 
