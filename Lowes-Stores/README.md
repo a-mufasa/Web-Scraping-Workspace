@@ -5,7 +5,7 @@ Scraper and Parser for Lowes store directories. This tool goes through all the s
 ## File Structure
 
 - **`states.json`**  
-  A JSON file containing a list of state objects. Each object must have an `"id"` and a `"name"`. For example:
+  A JSON file containing a list of state objects. Each object must have an `"id"` and a `"name"`. This can be manually copied from the client.js file on the `https://www.lowes.com/Lowes-Stores` site. For example:
   ```json
   [
       {
