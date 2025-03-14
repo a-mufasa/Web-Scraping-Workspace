@@ -15,7 +15,7 @@ This code will take the list of vendor/exhibitor ids we just extracted and the b
 
 How to run: `python3 scrape.py [vendor IDs file] [base url] [optional output folder]`
 
-### `parse.py`
+### `parse-YYYY.py`
 This code will go through each of the pages that were just scraped and parse through them using Python's `BeautifulSoup` package and push all of the companies' information into a `data.json` file. When running this, you'll need to provide the base_url of the website which is the host in this case (ex: https://wff2024.mapyourshow.com)
 
-How to run: `python3 parse.py [base url]`
+How to run: `python3 parse-YYYY.py [base url]`
