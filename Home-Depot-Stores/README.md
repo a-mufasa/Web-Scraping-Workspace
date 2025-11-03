@@ -52,15 +52,20 @@ Scraper and Parser for Home Depot store directories. This tool fetches the Home 
 
 ## How to Run
 
-1. Ensure you have Python 3 installed on your system.
-2. Open your terminal and navigate to the directory containing `scrape.py`.
-3. Run the script with:
+From the workspace root:
 
-   ```bash
-   python3 scrape.py
-   ```
+```
+uv run python Home-Depot-Stores/scrape.py
+```
 
-4. Once the script completes, you will find `homedepot_stores.csv` in the same directory with all the scraped store data.
+Or from within this directory:
+
+```
+cd Home-Depot-Stores
+uv run python scrape.py
+```
+
+Once the script completes, you will find `homedepot_stores.csv` in the same directory with all the scraped store data.
 
 ## Troubleshooting
 

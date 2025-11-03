@@ -8,14 +8,26 @@ Go to the [exhibitor list page](https://s15.a2zinc.net/eventmap/public/eventmap.
 ### `getVendors.py`
 This code will take the HTML pasted from the site and extract all the vendor booth ids into a `vendors.txt` file. 
 
-How to run: `python3 getVendors.py [HTML file]`
+How to run:
+
+```
+uv run python smallworldlabs/getVendors.py [HTML file]
+```
 
 ### `scrape.py`
 This code will take the list of exhibitor booth ids we just extracted and the base url of the site and scrape each exhibitor's page into an output folder. If you have a specific name for the folder you can input that, otherwise it will default to `pages`. Note that the base url in this case is the URL of the exhibitor's page without the ID (ex: https://expowest24.smallworldlabs.com/?page_id=2424&boothId=)
 
-How to run: `python3 scrape.py [vendor IDs file] [base url] [optional output folder]`
+How to run:
+
+```
+uv run python smallworldlabs/scrape.py [vendor IDs file] [base url] [optional output folder]
+```
 
 ### `parse.py`
 This code will go through each of the pages that were just scraped and parse through them using Python's `BeautifulSoup` package and push all of the companies' information into a `data.json` file. When running this, you'll need to provide the base_url of the website which is the host in this case (ex: https://expowest24.smallworldlabs.com)
 
-How to run: `python3 parse.py [base url]`
+How to run:
+
+```
+uv run python smallworldlabs/parse.py [base url]
+```

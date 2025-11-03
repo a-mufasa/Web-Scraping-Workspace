@@ -70,15 +70,22 @@ Scraper and Parser for Lowes store directories. This tool goes through all the s
 
 ## How to Run
 
-1. Ensure that the `states.json` file is correctly formatted and located in the same directory as `scrape.py`.
-2. Open your terminal and navigate to the directory containing the files.
-3. Run the script with:
+Ensure that the `states.json` file is correctly formatted and located in the `Lowes-Stores` directory.
 
-   ```bash
-   python3 scrape.py
-   ```
+From the workspace root:
 
-4. Once the script finishes, you will find `lowes_stores.csv` in the directory with all the scraped store data.
+```
+uv run python Lowes-Stores/scrape.py
+```
+
+Or from within this directory:
+
+```
+cd Lowes-Stores
+uv run python scrape.py
+```
+
+Once the script finishes, you will find `lowes_stores.csv` in the directory with all the scraped store data.
 
 ## Troubleshooting
 

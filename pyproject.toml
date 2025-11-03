@@ -1,0 +1,15 @@
+[project]
+name = "web-scraping-workspace"
+version = "1.0.0"
+description = "Collection of web scraping projects for various retail and trade show directories"
+readme = "README.md"
+requires-python = ">=3.8"
+dependencies = [
+    "requests>=2.31.0",
+    "beautifulsoup4>=4.12.0",
+    "lxml>=4.9.0",
+]
+
+[tool.uv]
+package = false
+
