@@ -1,4 +1,4 @@
-import requests
+import httpx
 from bs4 import BeautifulSoup
 import json
 import csv
@@ -48,7 +48,7 @@ with open(csv_file, mode="w", newline="", encoding="utf-8") as f:
     directory_url = "https://www.homedepot.com/l/storeDirectory"
     print(f"Fetching store directory from: {directory_url}")
     try:
-        response = requests.get(directory_url, headers=headers, timeout=30)
+        response = httpx.get(directory_url, headers=headers, timeout=30)
     except Exception as e:
         print(f"Error fetching {directory_url}: {e}")
         exit(1)
@@ -85,12 +85,12 @@ with open(csv_file, mode="w", newline="", encoding="utf-8") as f:
         for attempt in range(max_retries):
             try:
                 print(f"Attempt {attempt+1} for state URL: {state_link}")
-                state_response = requests.get(state_link, headers=headers, timeout=30)
+                state_response = httpx.get(state_link, headers=headers, timeout=30)
                 if state_response.status_code != 200:
                     print(f"Error: Received status code {state_response.status_code} for {state_link}")
                     continue
                 break  # Success
-            except requests.exceptions.Timeout as te:
+            except httpx.TimeoutException as te:
                 print(f"Timeout on attempt {attempt+1} for {state_link}: {te}")
                 if attempt < max_retries - 1:
                     time.sleep(5)
