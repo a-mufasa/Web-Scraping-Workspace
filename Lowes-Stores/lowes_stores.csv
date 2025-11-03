@@ -69,6 +69,7 @@ Store,0792,Scottsdale,AZ,85254
 Store,1850,Scottsdale,AZ,85257
 Store,2562,Lake Havasu City,AZ,86404
 Store,3000,Tempe,AZ,85283
+Store,3068,Maricopa,AZ,85138
 Store,1728,Glendale,AZ,85301
 Store,2663,Sierra Vista,AZ,85635
 Store,2683,Carefree,AZ,85377
@@ -434,6 +435,7 @@ Store,2968,Carrollton,GA,30117
 Store,1646,Dalton,GA,30721
 Store,1644,Milledgeville,GA,31061
 Store,1651,Kennesaw,GA,30152
+Store,3498,Braselton,GA,30517
 Store,1715,East Point,GA,30344
 Store,1733,Griffin,GA,30223
 Store,0403,Savannah,GA,31419
@@ -659,12 +661,13 @@ Store,2629,Windham,ME,04062
 Store,2209,Presque Isle,ME,04769
 Store,2265,Augusta,ME,04330
 Store,2291,Brewer,ME,04412
+Store,3647,Baltimore,MD,21136
+Store,0624,Baltimore,MD,21228
+Store,0691,Baltimore,MD,21236
 Store,2357,Hagerstown,MD,21742
 Store,0471,Hagerstown,MD,21740
 Store,2354,La Plata,MD,20646
 Store,2800,Oakland,MD,21550
-Store,0624,Baltimore,MD,21228
-Store,0691,Baltimore,MD,21236
 Store,0631,Glen Burnie,MD,21061
 Store,2826,Frederick,MD,21701
 Store,0516,Frederick,MD,21704
@@ -1029,9 +1032,6 @@ Store,1095,Knightdale,NC,27545
 Store,1922,Marion,NC,28752
 Store,0612,Shelby,NC,28150
 Store,0619,Morehead City,NC,28557
-Store,0617,Asheville,NC,28805
-Store,3130,Asheville,NC,28805
-Store,0526,Asheville,NC,28806
 Store,0625,Raleigh,NC,27613
 Store,0444,Raleigh,NC,27604
 Store,0647,Smithfield,NC,27577
@@ -1109,9 +1109,12 @@ Store,2201,Arden,NC,28704
 Store,2257,Sylva,NC,28779
 Store,2256,Hampstead,NC,28443
 Store,2255,W. Jefferson,NC,28694
+Store,0907,North Wilkesboro,NC,28659
 Store,1815,Roanoke Rapids,NC,27870
 Store,0508,Burlington,NC,27215
 Store,1834,Banner Elk,NC,28604
+Store,0526,Asheville,NC,28806
+Store,3617,Asheville,NC,28805
 Store,0538,Southern Pines,NC,28387
 Store,0547,Rocky Mount,NC,27804
 Store,1878,Apex,NC,27502
@@ -1569,6 +1572,11 @@ Store,0463,Tyler,TX,75703
 Store,2656,Mcallen,TX,78504
 Store,2670,Hutto,TX,78634
 Store,2669,Brownsville,TX,78520
+Store,3519,Georgetown,TX,78628
+Store,3518,Haslet,TX,76052
+Store,3527,Midlothian,TX,76065
+Store,3524,Magnolia,TX,77354
+Store,3529,Royse City,TX,75189
 Store,0028,Texas City,TX,77590
 Store,2220,Cleburne,TX,76033
 Store,2225,Granbury,TX,76048
