@@ -1,6 +1,6 @@
 import sys
 import os
-import requests
+import httpx
 import time
 
 HELP_TEXT = '''Scraper! Scrapes lists of pages
@@ -14,7 +14,7 @@ USAGE python3 scrape.py [list to exhids] [base_url] [output (optional)]
 if len(sys.argv) < 3:
     print(HELP_TEXT)
 else:
-    s = requests.Session()
+    client = httpx.Client()
 
     headers = {
         'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
@@ -39,8 +39,8 @@ else:
         'JSESSIONID': '268F88B625E2BBD8DBEE2F7C5196D0A5.vts',
     }
 
-    s.headers.update(headers)
-    s.cookies.update(cookies)
+    client.headers.update(headers)
+    client.cookies.update(cookies)
 
     base_url = sys.argv[2]
     with open(sys.argv[1], 'r') as f:
@@ -65,13 +65,13 @@ else:
         output_path = f'{output}{name}.html'
         if not os.path.exists(output_path):
             try:
-                response = s.get(base_url + url, timeout=10)
+                response = client.get(base_url + url, timeout=10)
                 if response.status_code == 200:
                     with open(output_path, 'w', encoding='utf-8') as f:
                         f.write(response.text)
                 else:
                     print(f"Failed to fetch {base_url + url}: HTTP {response.status_code}")
-            except requests.exceptions.RequestException as e:
+            except httpx.RequestError as e:
                 print(f"Error fetching {base_url + url}: {e}")
 
         if counter % 25 == 0:

@@ -1,6 +1,6 @@
 import sys
 import os
-import requests
+import httpx
 
 HELP_TEXT = '''Scraper! Scrapes lists of pages
 USAGE python3 scrape.py [list to exhids] [base_url] [output (optional)]
@@ -13,7 +13,7 @@ USAGE python3 scrape.py [list to exhids] [base_url] [output (optional)]
 if len(sys.argv) < 3:
     print(HELP_TEXT)
 else:
-    s = requests.session()
+    client = httpx.Client()
     base_url = sys.argv[2]
     with open(sys.argv[1], 'r') as f:
         urls = f.read()
@@ -32,7 +32,7 @@ else:
     for counter, url in enumerate(urls):
         name = url.replace('/', '_SLASH_')
         if not os.path.exists(f'{output}{name}.html'):
-            txt = s.get(base_url + url).text
+            txt = client.get(base_url + url).text
             with open(f'{output}{name}.html', 'w') as f:
                 f.write(txt)
 
