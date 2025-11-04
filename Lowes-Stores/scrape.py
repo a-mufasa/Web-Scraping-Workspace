@@ -1,4 +1,4 @@
-import requests
+import httpx
 from bs4 import BeautifulSoup
 import json
 import csv
@@ -39,13 +39,13 @@ with open(csv_file, mode="w", newline="", encoding="utf-8") as f:
         for attempt in range(max_retries):
             try:
                 print(f"Attempt {attempt+1} for URL: {url}")
-                response = requests.get(url, headers=headers, timeout=30)
+                response = httpx.get(url, headers=headers, timeout=30)
                 print(f"Response status code: {response.status_code}")
                 if response.status_code != 200:
                     print(f"Error: Received status code {response.status_code} for {url}")
                     continue
                 break  # Exit retry loop if successful
-            except requests.exceptions.Timeout as te:
+            except httpx.TimeoutException as te:
                 print(f"Timeout on attempt {attempt+1} for {url}: {te}")
                 if attempt < max_retries - 1:
                     print("Retrying in 5 seconds...")

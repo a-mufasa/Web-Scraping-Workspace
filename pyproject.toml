@@ -5,7 +5,7 @@ description = "Collection of web scraping projects for various retail and trade 
 readme = "README.md"
 requires-python = ">=3.8"
 dependencies = [
-    "requests>=2.31.0",
+    "httpx>=0.27.0",
     "beautifulsoup4>=4.12.0",
     "lxml>=4.9.0",
 ]
