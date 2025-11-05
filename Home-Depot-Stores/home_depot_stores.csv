@@ -1582,6 +1582,16 @@ Store,6841,State College,PA,16803
 Store,6866,Philadelphia,PA,19116
 Store,6956,Honesdale,PA,18431
 Store,8955,Parkesburg,PA,19365
+Store,6401,Bayamon,PR,00961
+Store,6402,Carolina,PR,00983
+Store,6403,Caguas,PR,00726
+Store,6405,Bayamon,PR,00960
+Store,6407,Mayaguez,PR,00682
+Store,6408,San Juan,PR,00928
+Store,6409,Carolina,PR,00979
+Store,6411,Ponce,PR,00728
+Store,6412,Hatillo,PR,00659
+Store,6415,Humacao,PR,00791
 Store,4279,Coventry,RI,02816
 Store,4280,Warwick,RI,02886
 Store,4282,Smithfield,RI,02917
@@ -1971,17 +1981,6 @@ Store,8944,Seattle,WA,98106
 Store,8964,Aberdeen,WA,98520
 Store,8966,Moses Lake,WA,98837
 Store,8998,Sequim,WA,98382
-Store,4801,Barboursville,WV,25504
-Store,4802,Charleston,WV,25309
-Store,4803,Vienna,WV,26105
-Store,4805,Ranson,WV,25438
-Store,8429,Hurricane,WV,25526
-Store,8433,Bridgeport,WV,26330
-Store,6001,Casper,WY,82609
-Store,6002,Cheyenne,WY,82001
-Store,6003,Rock Springs,WY,82901
-Store,6004,Sheridan,WY,82801
-Store,6005,Gillette,WY,82718
 Store,4902,West Allis,WI,53227
 Store,4903,Grand Chute,WI,54914
 Store,4905,Onalaska,WI,54650
@@ -2009,3 +2008,16 @@ Store,4935,Hudson,WI,54016
 Store,4940,Menomonee Falls,WI,53051
 Store,4941,Milwaukee,WI,53207
 Store,4942,Wisconsin Rapids,WI,54494
+Store,4801,Barboursville,WV,25504
+Store,4802,Charleston,WV,25309
+Store,4803,Vienna,WV,26105
+Store,4805,Ranson,WV,25438
+Store,8429,Hurricane,WV,25526
+Store,8433,Bridgeport,WV,26330
+Store,6001,Casper,WY,82609
+Store,6002,Cheyenne,WY,82001
+Store,6003,Rock Springs,WY,82901
+Store,6004,Sheridan,WY,82801
+Store,6005,Gillette,WY,82718
+Store,8201,Saint Thomas,VI,00802
+Store,8622,Kingshill,VI,00850
