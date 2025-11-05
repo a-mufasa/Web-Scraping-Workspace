@@ -1,4 +1,11 @@
 Type,#,City,State,Zip
+Store,1301,Anchorage,AK,99503
+Store,1302,Anchorage,AK,99508
+Store,1303,Fairbanks,AK,99701
+Store,1304,Wasilla,AK,99654
+Store,8938,Kenai,AK,99611
+Store,8939,Juneau,AK,99801
+Store,8940,Anchorage,AK,99507
 Store,0801,Mobile,AL,36695
 Store,0802,Foley,AL,36535
 Store,0803,Madison,AL,35757
@@ -27,13 +34,20 @@ Store,0887,Trussville,AL,35173
 Store,0888,Huntsville,AL,35803
 Store,6889,Alexander City,AL,35010
 Store,8577,Florence,AL,35630
-Store,1301,Anchorage,AK,99503
-Store,1302,Anchorage,AK,99508
-Store,1303,Fairbanks,AK,99701
-Store,1304,Wasilla,AK,99654
-Store,8938,Kenai,AK,99611
-Store,8939,Juneau,AK,99801
-Store,8940,Anchorage,AK,99507
+Store,1401,Little Rock,AR,72211
+Store,1402,North Little Rock,AR,72117
+Store,1403,Fayetteville,AR,72703
+Store,1404,Fort Smith,AR,72903
+Store,1405,Benton,AR,72019
+Store,1406,Jonesboro,AR,72404
+Store,1407,Conway,AR,72032
+Store,1409,Harrison,AR,72601
+Store,1410,Mountain Home,AR,72653
+Store,1411,Batesville,AR,72501
+Store,1412,Cabot,AR,72023
+Store,8445,Rogers,AR,72758
+Store,8537,El Dorado,AR,71730
+Store,8919,Little Rock,AR,72209
 Store,0401,Phoenix,AZ,85022
 Store,0402,Yuma,AZ,85365
 Store,0403,Lake Havasu City,AZ,86404
@@ -54,6 +68,7 @@ Store,0421,Flagstaff,AZ,86004
 Store,0422,Payson,AZ,85541
 Store,0423,Cottonwood,AZ,86326
 Store,0424,Peoria,AZ,85383
+Store,0431,Surprise,AZ,85388
 Store,0432,Maricopa,AZ,85138
 Store,0441,Avondale,AZ,85323
 Store,0442,Bullhead City,AZ,86429
@@ -93,21 +108,6 @@ Store,6862,Mesa,AZ,85201
 Store,6948,Phoenix,AZ,85086
 Store,8488,Nogales,AZ,85621
 Store,8582,Chandler,AZ,85286
-Store,1401,Little Rock,AR,72211
-Store,1402,North Little Rock,AR,72117
-Store,1403,Fayetteville,AR,72703
-Store,1404,Fort Smith,AR,72903
-Store,1405,Benton,AR,72019
-Store,1406,Jonesboro,AR,72404
-Store,1407,Conway,AR,72032
-Store,1409,Harrison,AR,72601
-Store,1410,Mountain Home,AR,72653
-Store,1411,Batesville,AR,72501
-Store,1412,Cabot,AR,72023
-Store,8445,Rogers,AR,72758
-Store,8537,El Dorado,AR,71730
-Store,8919,Little Rock,AR,72209
-Store,designcenter,San Diego,CA,92121
 Store,0601,Corona,CA,92879
 Store,0603,Tustin,CA,92782
 Store,0606,Santa Ana,CA,92704
@@ -341,6 +341,7 @@ Store,8949,Poway,CA,92064
 Store,8975,Oroville,CA,95965
 Store,8987,Beaumont,CA,92223
 Store,8988,Lake Elsinore,CA,92530
+Store,designcenter,San Diego,CA,92121
 Store,1501,Aurora,CO,80012
 Store,1502,Arvada,CO,80002
 Store,1503,Thornton,CO,80229
@@ -417,6 +418,7 @@ Store,6235,Southington,CT,06489
 Store,6236,Trumbull,CT,06611
 Store,6242,Stamford,CT,06902
 Store,8473,Hamden,CT,06514
+Store,2583,Washington,DC,20018
 Store,1601,Newark,DE,19713
 Store,1602,Claymont,DE,19703
 Store,1603,Newark,DE,19702
@@ -426,7 +428,6 @@ Store,1608,Dover,DE,19901
 Store,1610,Newark,DE,19711
 Store,6843,Middletown,DE,19709
 Store,8440,Wilmington,DE,19802
-Store,2583,Washington,DC,20018
 Store,0201,Port Charlotte,FL,33948
 Store,0202,Hialeah,FL,33012
 Store,0203,Lake Wales,FL,33859
@@ -509,6 +510,7 @@ Store,6313,Key West,FL,33040
 Store,6314,Stuart,FL,34994
 Store,6315,Delray Beach,FL,33444
 Store,6316,Lake Worth,FL,33467
+Store,6318,Jacksonville,FL,32257
 Store,6319,Bradenton,FL,34201
 Store,6320,West Palm Beach,FL,33401
 Store,6321,Largo,FL,33771
@@ -529,6 +531,7 @@ Store,6336,Palm Bay,FL,32907
 Store,6339,Miami,FL,33196
 Store,6340,Sebring,FL,33870
 Store,6341,Davie,FL,33328
+Store,6342,Saint Augustine,FL,32092
 Store,6343,Miami,FL,33144
 Store,6346,Jacksonville,FL,32205
 Store,6348,Naples,FL,34112
@@ -678,6 +681,7 @@ Store,8527,Thomaston,GA,30286
 Store,8584,Greensboro,GA,30642
 Store,8924,Calhoun,GA,30701
 Store,8954,Dublin,GA,31021
+Store,1710,Tamuning,GU,96913
 Store,1701,Honolulu,HI,96817
 Store,1702,Pearl City,HI,96782
 Store,1703,Kahului,HI,96732
@@ -686,6 +690,16 @@ Store,1705,Lihue,HI,96766
 Store,1706,Kapolei,HI,96707
 Store,1707,Honolulu,HI,96819
 Store,8453,Hilo,HI,96720
+Store,2101,Waterloo,IA,50702
+Store,2103,West Des Moines,IA,50266
+Store,2104,Des Moines,IA,50320
+Store,2107,Ankeny,IA,50021
+Store,2108,Cedar Rapids,IA,52402
+Store,2109,Council Bluffs,IA,51501
+Store,2111,Bettendorf,IA,52722
+Store,2113,Clinton,IA,52732
+Store,2114,Sioux City,IA,51106
+Store,2115,Urbandale,IA,50322
 Store,1801,Boise,ID,83704
 Store,1802,Idaho Falls,ID,83404
 Store,1803,Coeur D Alene,ID,83815
@@ -696,6 +710,8 @@ Store,1807,Chubbuck,ID,83202
 Store,1808,Lewiston,ID,83501
 Store,1809,Eagle,ID,83616
 Store,1810,Ponderay,ID,83852
+Store,1811,Caldwell,ID,83605
+Store,1866,Moscow,ID,83843
 Store,8941,Nampa,ID,83651
 Store,1851,Belleville,IL,62226
 Store,1901,Broadview,IL,60155
@@ -797,16 +813,6 @@ Store,2034,Lafayette,IN,47904
 Store,2036,Hammond,IN,46320
 Store,2037,Carmel,IN,46032
 Store,8918,Crawfordsville,IN,47933
-Store,2101,Waterloo,IA,50702
-Store,2103,West Des Moines,IA,50266
-Store,2104,Des Moines,IA,50320
-Store,2107,Ankeny,IA,50021
-Store,2108,Cedar Rapids,IA,52402
-Store,2109,Council Bluffs,IA,51501
-Store,2111,Bettendorf,IA,52722
-Store,2113,Clinton,IA,52732
-Store,2114,Sioux City,IA,51106
-Store,2115,Urbandale,IA,50322
 Store,2201,Olathe,KS,66062
 Store,2202,Merriam,KS,66202
 Store,2203,Overland Park,KS,66212
@@ -865,59 +871,6 @@ Store,0383,Gonzales,LA,70737
 Store,0385,New Orleans,LA,70125
 Store,0386,Slidell,LA,70461
 Store,0389,Broussard,LA,70518
-Store,2401,Portland,ME,04103
-Store,2403,Auburn,ME,04210
-Store,2404,Augusta,ME,04330
-Store,2405,Biddeford,ME,04005
-Store,2406,South Portland,ME,04106
-Store,2407,Waterville,ME,04901
-Store,2408,Ellsworth,ME,04605
-Store,2409,Rockland,ME,04841
-Store,2410,Topsham,ME,04086
-Store,2412,Windham,ME,04062
-Store,2414,Bangor,ME,04401
-Store,designcenter,Rockville,MD,20852
-Store,2501,Glen Burnie,MD,21060
-Store,2502,Baltimore,MD,21220
-Store,2503,Catonsville,MD,21228
-Store,2504,Parkville,MD,21234
-Store,2505,Baltimore,MD,21224
-Store,2506,Bel Air,MD,21014
-Store,2507,Owings Mills,MD,21117
-Store,2509,Bethesda,MD,20817
-Store,2510,Aberdeen,MD,21001
-Store,2511,Frederick,MD,21702
-Store,2550,Gaithersburg,MD,20877
-Store,2551,Silver Spring,MD,20904
-Store,2552,College Park,MD,20740
-Store,2554,Oxon Hill,MD,20745
-Store,2555,Capitol Heights,MD,20743
-Store,2557,Annapolis,MD,21401
-Store,2558,Aspen Hill,MD,20906
-Store,2559,Frederick,MD,21704
-Store,2560,Germantown,MD,20876
-Store,2561,Salisbury,MD,21804
-Store,2562,Bowie,MD,20716
-Store,2563,Waldorf,MD,20601
-Store,2564,Hyattsville,MD,20782
-Store,2565,Cockeysville,MD,21030
-Store,2566,Ellicott City,MD,21042
-Store,2567,Hagerstown,MD,21740
-Store,2571,Laurel,MD,20707
-Store,2575,Columbia,MD,21046
-Store,2576,Edgewood,MD,21040
-Store,2577,Parkville,MD,21234
-Store,2578,Berlin,MD,21811
-Store,2579,Halethorpe,MD,21227
-Store,2580,Westminster,MD,21157
-Store,2581,Sykesville,MD,21784
-Store,2582,Glen Burnie,MD,21060
-Store,2584,Baltimore,MD,21215
-Store,2587,Rosedale,MD,21237
-Store,2589,Annapolis,MD,21401
-Store,6945,Randallstown,MD,21133
-Store,8548,Lanham,MD,20706
-Store,8550,Upper Marlboro,MD,20772
 Store,2602,Watertown,MA,02472
 Store,2603,Bridgewater,MA,02324
 Store,2605,Somerset,MA,02726
@@ -963,6 +916,59 @@ Store,2688,Everett,MA,02149
 Store,8452,Hadley,MA,01035
 Store,8923,Westfield,MA,01085
 Store,8979,Chelsea,MA,02150
+Store,2501,Glen Burnie,MD,21060
+Store,2502,Baltimore,MD,21220
+Store,2503,Catonsville,MD,21228
+Store,2504,Parkville,MD,21234
+Store,2505,Baltimore,MD,21224
+Store,2506,Bel Air,MD,21014
+Store,2507,Owings Mills,MD,21117
+Store,2509,Bethesda,MD,20817
+Store,2510,Aberdeen,MD,21001
+Store,2511,Frederick,MD,21702
+Store,2550,Gaithersburg,MD,20877
+Store,2551,Silver Spring,MD,20904
+Store,2552,College Park,MD,20740
+Store,2554,Oxon Hill,MD,20745
+Store,2555,Capitol Heights,MD,20743
+Store,2557,Annapolis,MD,21401
+Store,2558,Aspen Hill,MD,20906
+Store,2559,Frederick,MD,21704
+Store,2560,Germantown,MD,20876
+Store,2561,Salisbury,MD,21804
+Store,2562,Bowie,MD,20716
+Store,2563,Waldorf,MD,20601
+Store,2564,Hyattsville,MD,20782
+Store,2565,Cockeysville,MD,21030
+Store,2566,Ellicott City,MD,21042
+Store,2567,Hagerstown,MD,21740
+Store,2571,Laurel,MD,20707
+Store,2575,Columbia,MD,21046
+Store,2576,Edgewood,MD,21040
+Store,2577,Parkville,MD,21234
+Store,2578,Berlin,MD,21811
+Store,2579,Halethorpe,MD,21227
+Store,2580,Westminster,MD,21157
+Store,2581,Sykesville,MD,21784
+Store,2582,Glen Burnie,MD,21060
+Store,2584,Baltimore,MD,21215
+Store,2587,Rosedale,MD,21237
+Store,2589,Annapolis,MD,21401
+Store,6945,Randallstown,MD,21133
+Store,8548,Lanham,MD,20706
+Store,8550,Upper Marlboro,MD,20772
+Store,designcenter,Rockville,MD,20852
+Store,2401,Portland,ME,04103
+Store,2403,Auburn,ME,04210
+Store,2404,Augusta,ME,04330
+Store,2405,Biddeford,ME,04005
+Store,2406,South Portland,ME,04106
+Store,2407,Waterville,ME,04901
+Store,2408,Ellsworth,ME,04605
+Store,2409,Rockland,ME,04841
+Store,2410,Topsham,ME,04086
+Store,2412,Windham,ME,04062
+Store,2414,Bangor,ME,04401
 Store,2701,Pontiac,MI,48341
 Store,2702,Warren,MI,48089
 Store,2703,Canton,MI,48187
@@ -1066,20 +1072,6 @@ Store,2843,Inver Grove Heights,MN,55077
 Store,2844,Maple Grove,MN,55369
 Store,2845,Richfield,MN,55423
 Store,2847,Blaine,MN,55434
-Store,2901,Gulfport,MS,39503
-Store,2902,Jackson,MS,39213
-Store,2903,Horn Lake,MS,38637
-Store,2905,Hattiesburg,MS,39402
-Store,2906,Saltillo,MS,38866
-Store,2907,Brandon,MS,39042
-Store,2909,Vicksburg,MS,39180
-Store,2910,Biloxi,MS,39532
-Store,2912,Madison,MS,39110
-Store,2913,Brookhaven,MS,39601
-Store,2914,Oxford,MS,38655
-Store,2915,Picayune,MS,39466
-Store,2917,Clinton,MS,39056
-Store,8469,Olive Branch,MS,38654
 Store,3001,Columbia,MO,65202
 Store,3002,Brentwood,MO,63144
 Store,3003,Bridgeton,MO,63044
@@ -1114,12 +1106,68 @@ Store,3042,Joplin,MO,64801
 Store,8460,Kansas City,MO,64154
 Store,8984,Saint Joseph,MO,64506
 Store,8994,Chesterfield,MO,63005
+Store,2901,Gulfport,MS,39503
+Store,2902,Jackson,MS,39213
+Store,2903,Horn Lake,MS,38637
+Store,2905,Hattiesburg,MS,39402
+Store,2906,Saltillo,MS,38866
+Store,2907,Brandon,MS,39042
+Store,2909,Vicksburg,MS,39180
+Store,2910,Biloxi,MS,39532
+Store,2912,Madison,MS,39110
+Store,2913,Brookhaven,MS,39601
+Store,2914,Oxford,MS,38655
+Store,2915,Picayune,MS,39466
+Store,2917,Clinton,MS,39056
+Store,8469,Olive Branch,MS,38654
 Store,3101,Billings,MT,59102
 Store,3102,Missoula,MT,59808
 Store,3103,Great Falls,MT,59404
 Store,3104,Bozeman,MT,59718
 Store,3105,Kalispell,MT,59901
 Store,3106,Helena,MT,59602
+Store,3601,Pineville,NC,28134
+Store,3602,Matthews,NC,28105
+Store,3603,Charlotte,NC,28213
+Store,3604,Greensboro,NC,27407
+Store,3605,Greensboro,NC,27410
+Store,3606,Gastonia,NC,28056
+Store,3607,Kannapolis,NC,28083
+Store,3608,Charlotte,NC,28211
+Store,3609,Wilmington,NC,28412
+Store,3610,Winston Salem,NC,27103
+Store,3615,Cary,NC,27518
+Store,3616,Raleigh,NC,27616
+Store,3620,Durham,NC,27707
+Store,3625,Asheville,NC,28803
+Store,3626,Fayetteville,NC,28314
+Store,3627,Burlington,NC,27215
+Store,3628,Hickory,NC,28602
+Store,3629,Wilmington,NC,28403
+Store,3631,Garner,NC,27529
+Store,3632,Durham,NC,27705
+Store,3633,High Point,NC,27262
+Store,3634,Raleigh,NC,27615
+Store,3637,Hendersonville,NC,28792
+Store,3638,Cornelius,NC,28031
+Store,3639,Charlotte,NC,28227
+Store,3640,Charlotte,NC,28277
+Store,3641,Winston Salem,NC,27105
+Store,3642,Statesville,NC,28625
+Store,3644,Apex,NC,27523
+Store,3645,Asheville,NC,28806
+Store,3646,Charlotte,NC,28217
+Store,3647,Wake Forest,NC,27587
+Store,3648,Shallotte,NC,28470
+Store,3650,Kitty Hawk,NC,27949
+Store,3651,Greensboro,NC,27406
+Store,3652,Fuquay Varina,NC,27526
+Store,3655,Jacksonville,NC,28546
+Store,3661,Hillsborough,NC,27278
+Store,3662,Charlotte,NC,28273
+Store,3663,Knightdale,NC,27545
+Store,3701,Fargo,ND,58103
+Store,3703,Minot,ND,58701
 Store,3201,Omaha,NE,68116
 Store,3202,Omaha,NE,68134
 Store,3203,Omaha,NE,68137
@@ -1128,27 +1176,6 @@ Store,3206,Papillion,NE,68046
 Store,3208,Grand Island,NE,68803
 Store,3209,Lincoln,NE,68521
 Store,3210,Scottsbluff,NE,69361
-Store,3301,Las Vegas,NV,89145
-Store,3302,Henderson,NV,89014
-Store,3303,Las Vegas,NV,89104
-Store,3304,Reno,NV,89512
-Store,3305,Las Vegas,NV,89149
-Store,3306,Las Vegas,NV,89123
-Store,3307,North Las Vegas,NV,89032
-Store,3308,Las Vegas,NV,89113
-Store,3309,Carson City,NV,89706
-Store,3310,Reno,NV,89511
-Store,3311,Reno,NV,89523
-Store,3312,Carson City,NV,89705
-Store,3313,Sparks,NV,89436
-Store,3314,Las Vegas,NV,89147
-Store,3315,Las Vegas,NV,89117
-Store,3316,Las Vegas,NV,89120
-Store,3318,Las Vegas,NV,89103
-Store,3320,Elko,NV,89801
-Store,3322,Pahrump,NV,89060
-Store,3324,North Las Vegas,NV,89086
-Store,8560,Reno,NV,89521
 Store,3401,Londonderry,NH,03053
 Store,3402,Tilton,NH,03276
 Store,3403,Hooksett,NH,03106
@@ -1249,6 +1276,27 @@ Store,3514,Gallup,NM,87301
 Store,3515,Hobbs,NM,88240
 Store,3516,Alamogordo,NM,88310
 Store,3517,Rio Rancho,NM,87124
+Store,3301,Las Vegas,NV,89145
+Store,3302,Henderson,NV,89014
+Store,3303,Las Vegas,NV,89104
+Store,3304,Reno,NV,89512
+Store,3305,Las Vegas,NV,89149
+Store,3306,Las Vegas,NV,89123
+Store,3307,North Las Vegas,NV,89032
+Store,3308,Las Vegas,NV,89113
+Store,3309,Carson City,NV,89706
+Store,3310,Reno,NV,89511
+Store,3311,Reno,NV,89523
+Store,3312,Carson City,NV,89705
+Store,3313,Sparks,NV,89436
+Store,3314,Las Vegas,NV,89147
+Store,3315,Las Vegas,NV,89117
+Store,3316,Las Vegas,NV,89120
+Store,3318,Las Vegas,NV,89103
+Store,3320,Elko,NV,89801
+Store,3322,Pahrump,NV,89060
+Store,3324,North Las Vegas,NV,89086
+Store,8560,Reno,NV,89521
 Store,1202,Commack,NY,11725
 Store,1206,Freeport,NY,11520
 Store,1207,Wappingers Falls,NY,12590
@@ -1350,48 +1398,6 @@ Store,8465,Westbury,NY,11590
 Store,8466,Syosset,NY,11791
 Store,8958,Bellport,NY,11713
 Store,8996,Massena,NY,13662
-Store,3601,Pineville,NC,28134
-Store,3602,Matthews,NC,28105
-Store,3603,Charlotte,NC,28213
-Store,3604,Greensboro,NC,27407
-Store,3605,Greensboro,NC,27410
-Store,3606,Gastonia,NC,28056
-Store,3607,Kannapolis,NC,28083
-Store,3608,Charlotte,NC,28211
-Store,3609,Wilmington,NC,28412
-Store,3610,Winston Salem,NC,27103
-Store,3615,Cary,NC,27518
-Store,3616,Raleigh,NC,27616
-Store,3620,Durham,NC,27707
-Store,3625,Asheville,NC,28803
-Store,3626,Fayetteville,NC,28314
-Store,3627,Burlington,NC,27215
-Store,3628,Hickory,NC,28602
-Store,3629,Wilmington,NC,28403
-Store,3631,Garner,NC,27529
-Store,3632,Durham,NC,27705
-Store,3633,High Point,NC,27262
-Store,3634,Raleigh,NC,27615
-Store,3637,Hendersonville,NC,28792
-Store,3638,Cornelius,NC,28031
-Store,3639,Charlotte,NC,28227
-Store,3640,Charlotte,NC,28277
-Store,3641,Winston Salem,NC,27105
-Store,3642,Statesville,NC,28625
-Store,3644,Apex,NC,27523
-Store,3645,Asheville,NC,28806
-Store,3646,Charlotte,NC,28217
-Store,3647,Wake Forest,NC,27587
-Store,3648,Shallotte,NC,28470
-Store,3650,Kitty Hawk,NC,27949
-Store,3651,Greensboro,NC,27406
-Store,3652,Fuquay Varina,NC,27526
-Store,3655,Jacksonville,NC,28546
-Store,3661,Hillsborough,NC,27278
-Store,3662,Charlotte,NC,28273
-Store,3663,Knightdale,NC,27545
-Store,3701,Fargo,ND,58103
-Store,3703,Minot,ND,58701
 Store,3801,Toledo,OH,43615
 Store,3803,North Olmsted,OH,44070
 Store,3804,Maple Heights,OH,44137
@@ -1576,6 +1582,16 @@ Store,6841,State College,PA,16803
 Store,6866,Philadelphia,PA,19116
 Store,6956,Honesdale,PA,18431
 Store,8955,Parkesburg,PA,19365
+Store,6401,Bayamon,PR,00961
+Store,6402,Carolina,PR,00983
+Store,6403,Caguas,PR,00726
+Store,6405,Bayamon,PR,00960
+Store,6407,Mayaguez,PR,00682
+Store,6408,San Juan,PR,00928
+Store,6409,Carolina,PR,00979
+Store,6411,Ponce,PR,00728
+Store,6412,Hatillo,PR,00659
+Store,6415,Humacao,PR,00791
 Store,4279,Coventry,RI,02816
 Store,4280,Warwick,RI,02886
 Store,4282,Smithfield,RI,02917
@@ -1709,6 +1725,7 @@ Store,0586,San Antonio,TX,78227
 Store,0587,Southlake,TX,76092
 Store,0588,San Antonio,TX,78249
 Store,0589,Dallas,TX,75209
+Store,0597,Anna,TX,75409
 Store,0598,Dallas,TX,75243
 Store,1326,Houston,TX,77007
 Store,1349,Montgomery,TX,77356
@@ -1748,6 +1765,7 @@ Store,6537,Mesquite,TX,75150
 Store,6538,Georgetown,TX,78628
 Store,6539,Alvin,TX,77511
 Store,6540,Laredo,TX,78041
+Store,6541,Manor,TX,78653
 Store,6542,Austin,TX,78704
 Store,6543,Pearland,TX,77581
 Store,6544,San Antonio,TX,78209
@@ -1861,9 +1879,7 @@ Store,4461,Saratoga Springs,UT,84045
 Store,4462,West Jordan,UT,84081
 Store,8566,Riverton,UT,84065
 Store,8583,Layton,UT,84041
-Store,4501,Williston,VT,05495
-Store,4502,Rutland,VT,05701
-Store,4551,Bennington,VT,05201
+Store,0711,Charlottesville,VA,22901
 Store,4213,Haymarket,VA,20169
 Store,4601,Fairfax,VA,22030
 Store,4602,Sterling,VA,20165
@@ -1914,6 +1930,9 @@ Store,4660,Fredericksburg,VA,22407
 Store,8493,Danville,VA,24540
 Store,8551,Chantilly,VA,20152
 Store,8552,Warrenton,VA,20186
+Store,4501,Williston,VT,05495
+Store,4502,Rutland,VT,05701
+Store,4551,Bennington,VT,05201
 Store,4054,Renton,WA,98057
 Store,4233,Lynnwood,WA,98037
 Store,4701,Tacoma,WA,98409
@@ -1942,6 +1961,7 @@ Store,4726,Marysville,WA,98271
 Store,4727,Yakima,WA,98903
 Store,4728,Gig Harbor,WA,98332
 Store,4732,Wenatchee,WA,98801
+Store,4734,Spokane,WA,99223
 Store,4735,College Place,WA,99324
 Store,4737,Covington,WA,98042
 Store,4738,Vancouver,WA,98683
@@ -1961,12 +1981,6 @@ Store,8944,Seattle,WA,98106
 Store,8964,Aberdeen,WA,98520
 Store,8966,Moses Lake,WA,98837
 Store,8998,Sequim,WA,98382
-Store,4801,Barboursville,WV,25504
-Store,4802,Charleston,WV,25309
-Store,4803,Vienna,WV,26105
-Store,4805,Ranson,WV,25438
-Store,8429,Hurricane,WV,25526
-Store,8433,Bridgeport,WV,26330
 Store,4902,West Allis,WI,53227
 Store,4903,Grand Chute,WI,54914
 Store,4905,Onalaska,WI,54650
@@ -1994,21 +2008,16 @@ Store,4935,Hudson,WI,54016
 Store,4940,Menomonee Falls,WI,53051
 Store,4941,Milwaukee,WI,53207
 Store,4942,Wisconsin Rapids,WI,54494
+Store,4801,Barboursville,WV,25504
+Store,4802,Charleston,WV,25309
+Store,4803,Vienna,WV,26105
+Store,4805,Ranson,WV,25438
+Store,8429,Hurricane,WV,25526
+Store,8433,Bridgeport,WV,26330
 Store,6001,Casper,WY,82609
 Store,6002,Cheyenne,WY,82001
 Store,6003,Rock Springs,WY,82901
 Store,6004,Sheridan,WY,82801
 Store,6005,Gillette,WY,82718
-Store,1710,Tamuning,GU,96913
-Store,6401,Bayamon,PR,00961
-Store,6402,Carolina,PR,00983
-Store,6403,Caguas,PR,00726
-Store,6405,Bayamon,PR,00960
-Store,6407,Mayaguez,PR,00682
-Store,6408,San Juan,PR,00928
-Store,6409,Carolina,PR,00979
-Store,6411,Ponce,PR,00728
-Store,6412,Hatillo,PR,00659
-Store,6415,Humacao,PR,00791
 Store,8201,Saint Thomas,VI,00802
 Store,8622,Kingshill,VI,00850
