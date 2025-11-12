@@ -184,8 +184,15 @@ for state in state_entries:
         store_url = store.get("url", "")
         if not store_url:
             raise ValueError(f"Missing store URL for store data: {store}")
-        # Extract store id as the last part of the URL (after the last slash) & ensure id is always 4 digits by padding with leading zeros
-        store_id_val = store_url.rstrip("/").split("/")[-1].zfill(4)
+        # Extract store id as the last part of the URL (after the last slash)
+        store_id_raw = store_url.rstrip("/").split("/")[-1]
+        
+        # Filter out design centers
+        if store_id_raw.lower() == "designcenter":
+            continue
+        
+        # Ensure id is always 4 digits by padding with leading zeros
+        store_id_val = store_id_raw.zfill(4)
         
         new_stores.append(["Store", store_id_val, city_val, state_val, zip_val])
     
@@ -299,8 +306,15 @@ with open(csv_file, mode="w", newline="", encoding="utf-8") as f:
             store_url = store.get("url", "")
             if not store_url:
                 raise ValueError(f"Missing store URL for store data: {store}")
-            # Extract store id as the last part of the URL (after the last slash) & ensure id is always 4 digits by padding with leading zeros
-            store_id_val = store_url.rstrip("/").split("/")[-1].zfill(4)
+            # Extract store id as the last part of the URL (after the last slash)
+            store_id_raw = store_url.rstrip("/").split("/")[-1]
+            
+            # Filter out design centers
+            if store_id_raw.lower() == "designcenter":
+                continue
+            
+            # Ensure id is always 4 digits by padding with leading zeros
+            store_id_val = store_id_raw.zfill(4)
             
             writer.writerow(["Store", store_id_val, city_val, state_val, zip_val])
         
