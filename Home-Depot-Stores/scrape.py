@@ -53,7 +53,7 @@ def extract_apollo_json(soup_obj):
 
 # CSV file to write the store info
 csv_file = "home_depot_stores.csv"
-header = ["Type", "#", "City", "State", "Zip"]
+header = ["location_type", "number", "city", "state", "zip_code"]
 
 # Check if a state code was provided as command-line argument
 target_state = None

@@ -21,7 +21,7 @@ with open("states.json", "r", encoding="utf-8") as f:
 
 # CSV file to write the store info
 csv_file = "lowes_stores.csv"
-header = ["Type", "#", "City", "State", "Zip"]
+header = ["location_type", "number", "city", "state", "zip_code"]
 
 with open(csv_file, mode="w", newline="", encoding="utf-8") as f:
     writer = csv.writer(f)

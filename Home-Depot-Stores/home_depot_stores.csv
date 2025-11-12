@@ -1,4 +1,4 @@
-Type,#,City,State,Zip
+location_type,number,city,state,zip_code
 Store,1301,Anchorage,AK,99503
 Store,1302,Anchorage,AK,99508
 Store,1303,Fairbanks,AK,99701

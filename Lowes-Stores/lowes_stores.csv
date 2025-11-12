@@ -1,4 +1,4 @@
-Type,#,City,State,Zip
+location_type,number,city,state,zip_code
 Store,3645,Huntsville,AL,35806
 Store,1577,Huntsville,AL,35810
 Store,0411,Huntsville,AL,35803
