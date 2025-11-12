@@ -48,7 +48,7 @@ Scraper and Parser for Home Depot store directories. This tool fetches the Home 
    The **Type** field is always set to `"Store"`.
 
 5. **Writing CSV:**  
-   The collected data is written row by row to the CSV file (`homedepot_stores.csv`) with columns `["Type", "#", "City", "State", "Zip"]`.
+   The collected data is written row by row to the CSV file (`homedepot_stores.csv`) with columns `["location_type", "number", "city", "state", "zip_code"]`.
 
 ## How to Run
 
