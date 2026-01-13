@@ -20,14 +20,16 @@ if __name__ == "__main__":
         with open(sys.argv[1], 'r') as f:
             data = f.read()
 
-        soup = BeautifulSoup(data, 'html')
-        # THIS IS FOR LIST VIEW
-        eles = soup.find_all('a', attrs={'class': 'bb-0 color-inherit'})
+        soup = BeautifulSoup(data, 'html.parser')
+        # THIS IS FOR LIST VIEW - find exhibitor detail links
+        eles = soup.find_all('a', href=lambda href: href and 'exhibitor-details.cfm?exhid=' in href)
 
-        urls = []
+        exhids = []
         print(f'{len(eles)} listings found.')
         for ele in eles:
-            urls.append(ele.attrs['href'].split('exhid=')[-1].split('&')[0])
+            exhid = ele.attrs['href'].split('exhid=')[-1].split('&')[0]
+            if exhid not in exhids:  # Only add unique IDs
+                exhids.append(exhid)
 
         with open(sys.argv[1].replace('.html', '.txt'), 'w') as f:
-            f.write('\n'.join(urls))
+            f.write('\n'.join(exhids))
