@@ -1,81 +1,112 @@
 import sys
 import os
 import httpx
-import time
+import asyncio
+import random
 
-HELP_TEXT = '''Scraper! Scrapes lists of pages
-USAGE python3 scrape.py [list to exhids] [base_url] [output (optional)]
+HELP_TEXT = '''Scraper! Scrapes lists of pages (concurrent async + retry)
+USAGE python3 scrape.py [list to exhids] [base_url] [output (optional)] [concurrency (optional)]
 
-- list to exhids = Literally a .txt file with list of exhibition ids
-- base_url = All the url before the exhid. EX: https://wff2025.mapyourshow.com/8_0/exhibitor/exhibitor-details.cfm?exhid=
-- output (optional) = the name of the folder to store in; Default to pages
+- list to exhids  = .txt file with list of exhibition ids (one per line)
+- base_url        = URL prefix before the exhid
+                    EX: https://sse26.mapyourshow.com/8_0/exhibitor/exhibitor-details.cfm?exhid=
+- output          = folder to store pages in (default: pages/)
+- concurrency     = number of parallel requests (default: 10)
 '''
 
-if len(sys.argv) < 3:
-    print(HELP_TEXT)
-else:
-    client = httpx.Client()
+HEADERS = {
+    'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
+    'accept-language': 'en-US,en;q=0.9',
+    'cache-control': 'no-cache',
+    'pragma': 'no-cache',
+    'referer': 'https://sse26.mapyourshow.com/8_0/explore/exhibitor-alphalist.cfm',
+    'sec-ch-ua': '"Chromium";v="130", "Google Chrome";v="130", "Not?A_Brand";v="99"',
+    'sec-ch-ua-mobile': '?0',
+    'sec-ch-ua-platform': '"macOS"',
+    'sec-fetch-dest': 'document',
+    'sec-fetch-mode': 'navigate',
+    'sec-fetch-site': 'same-origin',
+    'sec-fetch-user': '?1',
+    'upgrade-insecure-requests': '1',
+    'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36',
+}
 
-    headers = {
-        'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
-        'accept-language': 'en-US,en;q=0.9',
-        'cache-control': 'no-cache',
-        'pragma': 'no-cache',
-        'referer': 'https://wff2025.mapyourshow.com/8_0/explore/exhibitor-gallery.cfm?featured=false',
-        'sec-ch-ua': '"Chromium";v="130", "Google Chrome";v="130", "Not?A_Brand";v="99"',
-        'sec-ch-ua-mobile': '?0',
-        'sec-ch-ua-platform': '"macOS"',
-        'sec-fetch-dest': 'document',
-        'sec-fetch-mode': 'navigate',
-        'sec-fetch-site': 'same-origin',
-        'sec-fetch-user': '?1',
-        'upgrade-insecure-requests': '1',
-        'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36',
-    }
+MAX_RETRIES = 4
 
-    cookies = {
-        'CFID': '51997898',
-        'CFTOKEN': '3585f8544522eca6-CA55A7C2-C172-DE01-73DE70718AC2B5DF',
-        'JSESSIONID': '268F88B625E2BBD8DBEE2F7C5196D0A5.vts',
-    }
 
-    client.headers.update(headers)
-    client.cookies.update(cookies)
+async def fetch(client, sem, base_url, exhid, output_path, errors):
+    name = exhid.replace('/', '_SLASH_')
+    path = f'{output_path}{name}.html'
+    if os.path.exists(path):
+        return
+
+    async with sem:
+        for attempt in range(1, MAX_RETRIES + 1):
+            try:
+                r = await client.get(base_url + exhid, timeout=20)
+                if r.status_code == 200:
+                    with open(path, 'w', encoding='utf-8') as f:
+                        f.write(r.text)
+                    return
+                else:
+                    err = f'HTTP {r.status_code}'
+            except Exception as e:
+                err = str(e)
+
+            if attempt < MAX_RETRIES:
+                wait = (2 ** attempt) + random.uniform(0, 1)
+                await asyncio.sleep(wait)
+            else:
+                errors.append((exhid, err))
+                print(f'  FAIL {exhid}: {err}')
+
+
+async def main(ids, base_url, output_path, concurrency):
+    os.makedirs(output_path, exist_ok=True)
+
+    total = len(ids)
+    already = sum(1 for i in ids if os.path.exists(f'{output_path}{i.replace("/", "_SLASH_")}.html'))
+    to_fetch = total - already
+    print(f'{total} IDs total, {already} already downloaded, {to_fetch} to fetch (concurrency={concurrency})')
+
+    if to_fetch == 0:
+        print('Nothing to do.')
+        return
+
+    sem = asyncio.Semaphore(concurrency)
+    errors = []
+    done = 0
+
+    async with httpx.AsyncClient(headers=HEADERS, follow_redirects=True) as client:
+        tasks = [
+            fetch(client, sem, base_url, exhid, output_path, errors)
+            for exhid in ids
+        ]
+
+        for coro in asyncio.as_completed(tasks):
+            await coro
+            done += 1
+            if done % 50 == 0 or done == total:
+                downloaded = sum(1 for i in ids if os.path.exists(f'{output_path}{i.replace("/", "_SLASH_")}.html'))
+                print(f'  {done}/{total} tasks — {downloaded} files on disk')
+
+    print(f'\nDone. {len(errors)} permanent errors.')
+    for exhid, err in errors:
+        print(f'  {exhid}: {err}')
+
+
+if __name__ == '__main__':
+    if len(sys.argv) < 3:
+        print(HELP_TEXT)
+        sys.exit(0)
+
+    with open(sys.argv[1], 'r') as f:
+        ids = [line.strip() for line in f if line.strip()]
 
     base_url = sys.argv[2]
-    with open(sys.argv[1], 'r') as f:
-        urls = f.read()
+    output_path = sys.argv[3] if len(sys.argv) > 3 else 'pages/'
+    if not output_path.endswith('/'):
+        output_path += '/'
+    concurrency = int(sys.argv[4]) if len(sys.argv) > 4 else 10
 
-    try:
-        output = sys.argv[3]
-        if not output.endswith('/'):
-            output += '/'
-    except IndexError:
-        output = 'pages/'
-
-    if not os.path.exists(output):
-        os.makedirs(output)
-
-    urls = urls.split('\n')
-
-    urls_len = len(urls)
-
-    for counter, url in enumerate(urls):
-        name = url.replace('/', '_SLASH_')
-        output_path = f'{output}{name}.html'
-        if not os.path.exists(output_path):
-            try:
-                response = client.get(base_url + url, timeout=10)
-                if response.status_code == 200:
-                    with open(output_path, 'w', encoding='utf-8') as f:
-                        f.write(response.text)
-                else:
-                    print(f"Failed to fetch {base_url + url}: HTTP {response.status_code}")
-            except httpx.RequestError as e:
-                print(f"Error fetching {base_url + url}: {e}")
-
-        if counter % 25 == 0:
-            print(f'Completed {counter} out of {urls_len} pages')
-
-        # Throttle requests
-        time.sleep(1)  # Delay to avoid rate-limiting
+    asyncio.run(main(ids, base_url, output_path, concurrency))
